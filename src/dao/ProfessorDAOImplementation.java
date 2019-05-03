@@ -1,25 +1,25 @@
-package es.upm.dit.isst.webLab.dao;
+package dao;
 
 import java.util.Collection;
 
 import org.hibernate.Session;
 
-import es.upm.dit.isst.webLab.model.TFG;
+import model.Professor;
 
-public class TFGDAOImplementation implements TFGDAO {
-	private static TFGDAOImplementation instance = null;
-	private TFGDAOImplementation() {}
-	public static TFGDAOImplementation getInstance() {
-		if( null == instance ) 
-			instance = new TFGDAOImplementation();
+public class ProfessorDAOImplementation implements ProfessorDAO {
+	private static ProfessorDAOImplementation instance = null;
+	private ProfessorDAOImplementation() {}
+	public static ProfessorDAOImplementation getInstance() {
+		if( null == instance )
+			instance = new ProfessorDAOImplementation();
 		return instance;
 	}
 	@Override
-	public void create(TFG tfg) {
+	public void create(Professor professor) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.save( tfg );
+			session.save( professor );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
@@ -29,13 +29,13 @@ public class TFGDAOImplementation implements TFGDAO {
 		
 	}
 	@Override
-	public TFG read(String email) {
+	public Professor read(String email) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			TFG tfg = session.get( TFG.class, email );
+			Professor professor = session.get( Professor.class, email );
 			session.getTransaction().commit();
-			return tfg;
+			return professor;
 		} catch (Exception e) {
 			return null;
 		} finally {
@@ -43,24 +43,25 @@ public class TFGDAOImplementation implements TFGDAO {
 		}
 	}
 	@Override
-	public void update(TFG tfg) {
+	public void update(Professor professor) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate( tfg );
+			session.saveOrUpdate( professor );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
 		} finally {
 			session.close();
-		}		
+		}
+		
 	}
 	@Override
-	public void delete(TFG tfg) {
+	public void delete(Professor professor) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.delete( tfg );
+			session.delete( professor );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
@@ -71,13 +72,13 @@ public class TFGDAOImplementation implements TFGDAO {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public Collection<TFG> readAll() {
+	public Collection<Professor> readAll() {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			Collection<TFG> tfgs = session.createQuery( "from TFG" ).list();
+			Collection<Professor> professors = session.createQuery( "from Professor" ).list();
 			session.getTransaction().commit();
-			return tfgs;
+			return professors;
 		} catch (Exception e) {
 			return null;
 		} finally {

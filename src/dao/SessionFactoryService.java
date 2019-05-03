@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.dao;
+package dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

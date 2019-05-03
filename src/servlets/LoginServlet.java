@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.servlets;
+package servlets;
 
 import java.io.IOException;
 
@@ -12,8 +12,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 
-import es.upm.dit.isst.webLab.dao.ProfessorDAO;
-import es.upm.dit.isst.webLab.dao.ProfessorDAOImplementation;
+import dao.ProfessorDAO;
+import dao.ProfessorDAOImplementation;
 
 @SuppressWarnings("serial")
 @WebServlet({ "/LoginServlet", "/" })

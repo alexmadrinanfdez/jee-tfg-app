@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.model;
+package model;
 
 import java.io.Serializable;
 

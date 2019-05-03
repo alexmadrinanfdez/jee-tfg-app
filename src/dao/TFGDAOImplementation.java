@@ -1,25 +1,25 @@
-package es.upm.dit.isst.webLab.dao;
+package dao;
 
 import java.util.Collection;
 
 import org.hibernate.Session;
 
-import es.upm.dit.isst.webLab.model.Professor;
+import model.TFG;
 
-public class ProfessorDAOImplementation implements ProfessorDAO {
-	private static ProfessorDAOImplementation instance = null;
-	private ProfessorDAOImplementation() {}
-	public static ProfessorDAOImplementation getInstance() {
-		if( null == instance )
-			instance = new ProfessorDAOImplementation();
+public class TFGDAOImplementation implements TFGDAO {
+	private static TFGDAOImplementation instance = null;
+	private TFGDAOImplementation() {}
+	public static TFGDAOImplementation getInstance() {
+		if( null == instance ) 
+			instance = new TFGDAOImplementation();
 		return instance;
 	}
 	@Override
-	public void create(Professor professor) {
+	public void create(TFG tfg) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.save( professor );
+			session.save( tfg );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
@@ -29,13 +29,13 @@ public class ProfessorDAOImplementation implements ProfessorDAO {
 		
 	}
 	@Override
-	public Professor read(String email) {
+	public TFG read(String email) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			Professor professor = session.get( Professor.class, email );
+			TFG tfg = session.get( TFG.class, email );
 			session.getTransaction().commit();
-			return professor;
+			return tfg;
 		} catch (Exception e) {
 			return null;
 		} finally {
@@ -43,25 +43,24 @@ public class ProfessorDAOImplementation implements ProfessorDAO {
 		}
 	}
 	@Override
-	public void update(Professor professor) {
+	public void update(TFG tfg) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate( professor );
+			session.saveOrUpdate( tfg );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	@Override
-	public void delete(Professor professor) {
+	public void delete(TFG tfg) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.delete( professor );
+			session.delete( tfg );
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// manejar excepciones
@@ -72,13 +71,13 @@ public class ProfessorDAOImplementation implements ProfessorDAO {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public Collection<Professor> readAll() {
+	public Collection<TFG> readAll() {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			Collection<Professor> professors = session.createQuery( "from Professor" ).list();
+			Collection<TFG> tfgs = session.createQuery( "from TFG" ).list();
 			session.getTransaction().commit();
-			return professors;
+			return tfgs;
 		} catch (Exception e) {
 			return null;
 		} finally {

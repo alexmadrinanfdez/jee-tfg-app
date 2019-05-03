@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.servlets;
+package servlets;
 
 import java.io.IOException;
 

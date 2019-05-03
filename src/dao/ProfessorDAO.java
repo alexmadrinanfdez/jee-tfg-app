@@ -1,8 +1,8 @@
-package es.upm.dit.isst.webLab.dao;
+package dao;
 
 import java.util.Collection;
 
-import es.upm.dit.isst.webLab.model.Professor;
+import model.Professor;
 
 public interface ProfessorDAO {
 	

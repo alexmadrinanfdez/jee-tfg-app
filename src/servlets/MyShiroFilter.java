@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.servlets;
+package servlets;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;

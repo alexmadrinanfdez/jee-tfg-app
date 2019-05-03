@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.servlets;
+package servlets;
 
 import java.io.IOException;
 
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
-import es.upm.dit.isst.webLab.dao.ProfessorDAO;
-import es.upm.dit.isst.webLab.dao.ProfessorDAOImplementation;
-import es.upm.dit.isst.webLab.model.Professor;
+import dao.ProfessorDAO;
+import dao.ProfessorDAOImplementation;
+import model.Professor;
 
 @SuppressWarnings("serial")
 @WebServlet("/CreateProfessorServlet")

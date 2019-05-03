@@ -1,4 +1,4 @@
-package es.upm.dit.isst.webLab.servlets;
+package servlets;
 
 import java.io.IOException;
 
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.upm.dit.isst.webLab.dao.ProfessorDAO;
-import es.upm.dit.isst.webLab.dao.ProfessorDAOImplementation;
-import es.upm.dit.isst.webLab.dao.TFGDAO;
-import es.upm.dit.isst.webLab.dao.TFGDAOImplementation;
+import dao.ProfessorDAO;
+import dao.ProfessorDAOImplementation;
+import dao.TFGDAO;
+import dao.TFGDAOImplementation;
 
 @SuppressWarnings("serial")
 @WebServlet("/AdminServlet")
