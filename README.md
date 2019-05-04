@@ -1,9 +1,9 @@
 # jee-tfg-app
-Aplicación __web__ semifuncional para gestionar el proyecto del TFG para:
-* Alumnos
-* Profesores
-* PAS (_Personal Administrativo y Secretaría_)
+AplicaciÃ³n __web__ semifuncional para gestionar el proyecto del TFG para:
+- Alumnos
+- Profesores
+- PAS (_Personal Administrativo y SecretarÃ­a_)
 ----------
-Hay un usuario administrador predefinido
-> Name: root
-> Password: root
+Hay un **usuario administrador** predefinido
+ - Name: root
+ - Password: root
