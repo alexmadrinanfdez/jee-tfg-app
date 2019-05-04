@@ -15,17 +15,12 @@ import model.Professor;
 public class ProfessorDAOImplementationTest {
 	ProfessorDAO pdao = ProfessorDAOImplementation.getInstance();
 	Professor professor = new Professor();
-	Professor p = new Professor();
 
 	@Before
 	public void setUp() throws Exception {
 		professor.setEmail("email@mail.com");
 		professor.setName("nombre");
 		professor.setPassword("password");
-		
-		p.setEmail("mail@email.com");
-		p.setName("nombre");
-		p.setPassword("password");
 	}
 
 	@After
@@ -34,10 +29,9 @@ public class ProfessorDAOImplementationTest {
 	@Test
 	public void testCreate() {
 		pdao.create( professor );
-		pdao.create( p );
 		
 		assertNotNull(pdao);
-		assertNotNull(p.getEmail());
+		assertNotNull(professor.getEmail());
 	}
 
 	@Test
@@ -45,37 +39,35 @@ public class ProfessorDAOImplementationTest {
 		professor = pdao.read( "email@mail.com" );
 		
 		assertNotNull(professor);
-		assertEquals(p.getName(), professor.getName());
-		assertNotEquals(p.getEmail(), professor.getEmail());
-		assertEquals(p.getPassword(), professor.getPassword());
+		assertNotNull(professor.getName());
+		assertNotNull(professor.getEmail());
+		assertNotNull(professor.getPassword());
 	}
 
 	@Test
 	public void testUpdate() {
-		p.setEmail("mail@mail.com");
-		pdao.update( p );
+		professor.setEmail("mail@mail.com");
+		pdao.update( professor );
 		
-		p = pdao.read("mail@mail.com");
+		Professor p = pdao.read("mail@mail.com");
 		
 		assertEquals(p.getName(), professor.getName());
 		assertNotEquals(p.getEmail(), "mail@email.com");
-		assertNotEquals(p.getEmail(), professor.getEmail());
+		assertEquals(p.getEmail(), professor.getEmail());
 	}
 
 	@Test
 	public void testDelete() {
 		professor = pdao.read("email@mail.com");
-		p = pdao.read("mail@mail.com");
 		
 		pdao.delete(professor);
-		pdao.delete(p);
 	}
 
 	@Test
 	public void testReadAll() {
 		Collection<Professor> ps = pdao.readAll();
 		
-		assertTrue(ps.isEmpty());
+		assertFalse(ps.isEmpty());
 	}
 
 }
